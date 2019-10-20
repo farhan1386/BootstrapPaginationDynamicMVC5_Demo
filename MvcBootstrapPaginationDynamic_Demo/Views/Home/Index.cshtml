@@ -1,0 +1,23 @@
+﻿@model MvcBootstrapPaginationDynamic_Demo.ViewModel.BlogViewModel
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h3 class="text-uppercase">List of Blogs</h3>
+
+    @foreach (var blog in Model.PaginatedBlogs())
+    {
+        <div class="alert alert-secondary rounded-0">
+            <a href="@blog.Url" class="link" target="_blank">@blog.title</a> <span class="pull-right text-primary"><i class="fa fa-calendar"></i> @blog.Date.Value.ToString("dd-MM-yyyy")</span>
+        </div>
+    }
+
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.PageCount(); i++)
+        {
+            <li class="@(i == Model.CurrentPage ? "page-item active" : "page-item")">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+            </li>
+        }
+    </ul>
