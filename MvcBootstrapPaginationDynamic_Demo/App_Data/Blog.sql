@@ -1,0 +1,23 @@
+USE [MvcDemo]
+GO
+
+/****** Object:  Table [dbo].[Blog]    Script Date: 20-10-2019 18:51:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Blog](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[title] [nvarchar](255) NULL,
+	[Url] [nvarchar](max) NULL,
+	[Date] [datetime] NULL,
+ CONSTRAINT [PK_Blog] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
